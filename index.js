@@ -10,4 +10,8 @@ bFs.existsAsync = function(path) {
     })
 }
 
+// internal bluebird property to tell whether a method is the promisified version.  Setting this will prevent errors
+//   arrising from the fs library being promisified more than once.
+bFs.existsAsync.__isPromisified__ = true;
+
 module.exports = bFs;
